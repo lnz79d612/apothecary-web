@@ -32,4 +32,4 @@ Riprendi il controllo delle tue finanze quotidiane con un approccio rigoroso, tr
 
 ***
 
-[📄 Leggi l'Informativa sulla Privacy](/catalogo/privacy-zenflow/index.html)
+[📄 Leggi l'Informativa sulla Privacy](/privacy-zenflow/index.html)
