@@ -3,145 +3,79 @@ import Publish
 import Plot
 
 extension Theme where Site == AppthecaryWeb {
-    // Definiamo il nostro tema personalizzato
     static var glassmorphism: Self {
-        Theme(
-            htmlFactory: AppthecaryHTMLFactory()
-        )
+        Theme(htmlFactory: AppthecaryHTMLFactory())
     }
 }
 
-private struct AppthecaryHTMLFactory: HTMLFactory {
+struct AppthecaryHTMLFactory: HTMLFactory {
     typealias Site = AppthecaryWeb
     
-    // 1. GENERAZIONE DELLA HOME PAGE (INDEX)
+    // 1. HOME PAGE
     func makeIndexHTML(for index: Index, context: PublishingContext<AppthecaryWeb>) throws -> HTML {
         HTML(
-            .lang(context.site.language),
-            .head(
-                .meta(.charset(.utf8)),
-                .meta(.name("viewport"), .content("width=device-width, initial-scale=1.0")),
-                .title(context.site.name),
-                .link(.rel(.stylesheet), .href("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css")),
-                .style(glassCSS)
-            ),
+            .glassHead(for: context.site, title: context.site.name),
             .body(
-                .div(.class("blob blob-1")),
-                .div(.class("blob blob-2")),
-                .div(.class("blob blob-3")),
-                
-                .header(
-                    .div(.class("logo"), .a(.href("/"), .text("Appthecary"))),
-                    .nav(
-                        .a(.href("/catalogo/"), .text("Il Catalogo")),
-                        .a(.href("/meccanica/"), .text("Meccanica"))
-                    )
-                ),
+                .backgroundBlobs(),
+                .glassHeader(),
                 .main(
                     .section(.class("hero glass-card"),
                         .h1("Artigianato Digitale"),
                         .p("Sviluppo software indipendente. Un ecosistema pulito, trasparente e rigoroso.")
                     ),
-                    
                     .section(.class("catalog-grid"),
-                        // Scheda ZenFlow (Modificato l'href inserendo index.html esplicito)
+                        // Scheda ZenFlow
                         .div(.class("glass-card app-card"),
-                            .img(.src("/images/icon-zenflow.png"), .alt("Icona ZenFlow"), .class("app-icon")),
+                            .img(.src("/Images/icon-zenflow.png"), .alt("Icona ZenFlow"), .class("app-icon")),
                             .h3("ZenFlow"),
                             .p("Gestisci il tuo budget personale con serenità e controllo. Un approccio minimalista e pulito alle tue finanze quotidiane."),
                             .a(.href("/catalogo/zenflow/index.html"), .class("read-more"), .text("Scopri l'App →"))
                         ),
-                        
                         // Scheda VirtualPassport
                         .div(.class("glass-card app-card"),
-                            .img(.src("/images/icon-virtualpassport.png"), .alt("Icona VirtualPassport"), .class("app-icon")),
+                            .div(.class("app-icon-placeholder"), .i(.class("fa-solid fa-file-invoice"))),
                             .h3("VirtualPassport"),
                             .p("Traccia e pianifica i tuoi viaggi collezionando timbri virtuali da tutto il mondo."),
                             .a(.href("#"), .class("read-more"), .text("Scopri l'App →"))
                         ),
-                        
                         // Scheda AgendaDirettore
                         .div(.class("glass-card app-card"),
-                            .img(.src("/images/icon-agendadirettore.png"), .alt("Icona AgendaDirettore"), .class("app-icon")),
+                            .div(.class("app-icon-placeholder"), .i(.class("fa-solid fa-file-lines"))),
                             .h3("AgendaDirettore"),
                             .p("Strumento professionale per l'organizzazione e la ricerca rapida dei contatti."),
                             .a(.href("#"), .class("read-more"), .text("Scopri l'App →"))
                         )
                     )
                 ),
-                .footer(
-                    .div(.class("social-links"),
-                        .a(.href("#"), .target(.blank), .i(.class("fa-brands fa-instagram"))),
-                        .a(.href("#"), .target(.blank), .i(.class("fa-brands fa-tiktok")))
-                    ),
-                    .div(.class("copyright"), .text("© 2026 Appthecary. Tutti i diritti riservati."))
-                )
+                .glassFooter()
             )
         )
     }
 
-    // 2. GENERAZIONE DELLA PAGINA DI DETTAGLIO (Ogni singola App o Articolo)
+    // 2. PAGINA DETTAGLIO (App/Articolo)
     func makeItemHTML(for item: Item<AppthecaryWeb>, context: PublishingContext<AppthecaryWeb>) throws -> HTML {
         HTML(
-            .lang(context.site.language),
-            .head(
-                .meta(.charset(.utf8)),
-                .meta(.name("viewport"), .content("width=device-width, initial-scale=1.0")),
-                .title("\(item.title) | \(context.site.name)"),
-                .link(.rel(.stylesheet), .href("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css")),
-                .style(glassCSS)
-            ),
+            .glassHead(for: context.site, title: "\(item.title) | \(context.site.name)"),
             .body(
-                .div(.class("blob blob-1")),
-                .div(.class("blob blob-2")),
-                .div(.class("blob blob-3")),
-                
-                .header(
-                    .div(.class("logo"), .a(.href("/"), .text("Appthecary"))),
-                    .nav(
-                        .a(.href("/catalogo/"), .text("Il Catalogo")),
-                        .a(.href("/meccanica/"), .text("Meccanica"))
-                    )
-                ),
+                .backgroundBlobs(),
+                .glassHeader(),
                 .main(
                     .article(.class("glass-card article-card"),
                         .contentBody(item.body)
                     )
                 ),
-                .footer(
-                    .div(.class("social-links"),
-                        .a(.href("#"), .target(.blank), .i(.class("fa-brands fa-instagram"))),
-                        .a(.href("#"), .target(.blank), .i(.class("fa-brands fa-tiktok")))
-                    ),
-                    .div(.class("copyright"), .text("© 2026 Appthecary. Tutti i diritti riservati."))
-                )
+                .glassFooter()
             )
         )
     }
 
-    // 3. GENERAZIONE DELLE PAGINE DI SEZIONE (L'indice di /catalogo o /meccanica)
+    // 3. INDICE SEZIONE (Catalogo/Meccanica)
     func makeSectionHTML(for section: Section<AppthecaryWeb>, context: PublishingContext<AppthecaryWeb>) throws -> HTML {
         HTML(
-            .lang(context.site.language),
-            .head(
-                .meta(.charset(.utf8)),
-                .meta(.name("viewport"), .content("width=device-width, initial-scale=1.0")),
-                .title("\(section.title) | \(context.site.name)"),
-                .link(.rel(.stylesheet), .href("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css")),
-                .style(glassCSS)
-            ),
+            .glassHead(for: context.site, title: "\(section.title) | \(context.site.name)"),
             .body(
-                .div(.class("blob blob-1")),
-                .div(.class("blob blob-2")),
-                .div(.class("blob blob-3")),
-                
-                .header(
-                    .div(.class("logo"), .a(.href("/"), .text("Appthecary"))),
-                    .nav(
-                        .a(.href("/catalogo/"), .text("Il Catalogo")),
-                        .a(.href("/meccanica/"), .text("Meccanica"))
-                    )
-                ),
+                .backgroundBlobs(),
+                .glassHeader(),
                 .main(
                     .h1(.class("section-title"), .text(section.title)),
                     .ul(
@@ -154,229 +88,28 @@ private struct AppthecaryHTMLFactory: HTMLFactory {
                         }
                     )
                 ),
-                .footer(
-                    .div(.class("social-links"),
-                        .a(.href("#"), .target(.blank), .i(.class("fa-brands fa-instagram"))),
-                        .a(.href("#"), .target(.blank), .i(.class("fa-brands fa-tiktok")))
-                    ),
-                    .div(.class("copyright"), .text("© 2026 Appthecary. Tutti i diritti riservati."))
-                )
+                .glassFooter()
             )
         )
     }
     
-    // 4. GENERAZIONE DELLE PAGINE STANDALONE
+    // 4. PAGINE STANDALONE
     func makePageHTML(for page: Page, context: PublishingContext<AppthecaryWeb>) throws -> HTML {
         HTML(
-            .lang(context.site.language),
-            .head(
-                .meta(.charset(.utf8)),
-                .meta(.name("viewport"), .content("width=device-width, initial-scale=1.0")),
-                .title("\(page.title) | \(context.site.name)"),
-                .link(.rel(.stylesheet), .href("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css")),
-                .style(glassCSS)
-            ),
+            .glassHead(for: context.site, title: "\(page.title) | \(context.site.name)"),
             .body(
-                .div(.class("blob blob-1")),
-                .div(.class("blob blob-2")),
-                .div(.class("blob blob-3")),
-                
-                .header(
-                    .div(.class("logo"), .a(.href("/"), .text("Appthecary"))),
-                    .nav(
-                        .a(.href("/catalogo/"), .text("Il Catalogo")),
-                        .a(.href("/meccanica/"), .text("Meccanica"))
-                    )
-                ),
+                .backgroundBlobs(),
+                .glassHeader(),
                 .main(
                     .article(.class("glass-card article-card"),
                         .contentBody(page.body)
                     )
                 ),
-                .footer(
-                    .div(.class("social-links"),
-                        .a(.href("#"), .target(.blank), .i(.class("fa-brands fa-instagram"))),
-                        .a(.href("#"), .target(.blank), .i(.class("fa-brands fa-tiktok")))
-                    ),
-                    .div(.class("copyright"), .text("© 2026 Appthecary. Tutti i diritti riservati."))
-                )
+                .glassFooter()
             )
         )
     }
     
     func makeTagListHTML(for page: TagListPage, context: PublishingContext<AppthecaryWeb>) throws -> HTML? { nil }
     func makeTagDetailsHTML(for page: TagDetailsPage, context: PublishingContext<AppthecaryWeb>) throws -> HTML? { nil }
-
-    // 5. FOGLIO DI STILE CSS
-    let glassCSS = """
-    :root {
-        --bg-main: #E2E8F0;
-        --text-dark: #0F172A;
-        --accent-blue: #2563EB;
-        --glass-bg: rgba(255, 255, 255, 0.08);
-        --glass-border: 1px solid rgba(255, 255, 255, 0.40);
-        --glass-blur: blur(24px);
-    }
-    
-    body {
-        background-color: var(--bg-main);
-        color: var(--text-dark);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        margin: 0;
-        min-height: 100vh;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .blob {
-        position: fixed;
-        border-radius: 50%;
-        filter: blur(90px);
-        z-index: -1;
-        mix-blend-mode: multiply;
-    }
-    .blob-1 { 
-        width: 600px; height: 600px; 
-        background: radial-gradient(circle, rgba(99,102,241,0.6) 0%, rgba(168,85,247,0.4) 50%, rgba(255,255,255,0) 70%); 
-        top: -150px; right: -100px; 
-    }
-    .blob-2 { 
-        width: 550px; height: 550px; 
-        background: radial-gradient(circle, rgba(236,72,153,0.5) 0%, rgba(244,63,94,0.3) 50%, rgba(255,255,255,0) 70%); 
-        bottom: -50px; left: -150px; 
-    }
-    .blob-3 { 
-        width: 450px; height: 450px; 
-        background: radial-gradient(circle, rgba(6,182,212,0.4) 0%, rgba(59,130,246,0.2) 60%, rgba(255,255,255,0) 70%); 
-        top: 25%; left: 25%; 
-    }
-    
-    header {
-        padding: 20px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: var(--glass-blur);
-        -webkit-backdrop-filter: var(--glass-blur);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    }
-    .logo { font-weight: 700; font-size: 24px; letter-spacing: -1px; }
-    .logo a { text-decoration: none; color: var(--text-dark); }
-    nav a {
-        margin-left: 30px; text-decoration: none; color: var(--text-dark); font-weight: 500;
-        transition: color 0.2s ease;
-    }
-    nav a:hover { color: var(--accent-blue); }
-    
-    main { 
-        padding: 60px 40px; 
-        max-width: 1200px; 
-        margin: 0 auto; 
-        flex: 1; 
-        width: 100%; 
-        box-sizing: border-box; 
-    }
-    
-    .glass-card {
-        background: var(--glass-bg);
-        backdrop-filter: var(--glass-blur);
-        -webkit-backdrop-filter: var(--glass-blur);
-        border: var(--glass-border);
-        border-radius: 28px;
-        box-shadow: 0 12px 40px 0 rgba(15, 23, 42, 0.04), 
-                    inset 0 1px 1px rgba(255, 255, 255, 0.4),
-                    inset 0 -1px 1px rgba(255, 255, 255, 0.1);
-    }
-    
-    .hero { padding: 60px; text-align: center; }
-    .hero h1 { font-size: 60px; margin: 0 0 20px 0; letter-spacing: -2px; font-weight: 800; }
-    .hero p { font-size: 20px; color: #334155; margin: 0; font-weight: 500; }
-    
-    .catalog-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 35px;
-        margin-top: 40px;
-    }
-    .app-card {
-        padding: 40px;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-    }
-    .app-card:hover { 
-        transform: translateY(-10px) scale(1.01); 
-        box-shadow: 0 20px 50px 0 rgba(15, 23, 42, 0.10), 
-                    inset 0 1px 2px rgba(255, 255, 255, 0.5);
-        background: rgba(255, 255, 255, 0.12);
-    }
-    
-    .app-icon {
-        width: 76px; height: 76px; border-radius: 20px; margin-bottom: 24px;
-        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1); border: 1px solid rgba(255, 255, 255, 0.4);
-        object-fit: cover;
-    }
-    
-    .app-card h3 { font-size: 28px; margin-top: 0; margin-bottom: 15px; letter-spacing: -1px; font-weight: 700; }
-    .app-card p { font-size: 16px; color: #334155; line-height: 1.6; flex-grow: 1; margin-bottom: 25px; font-weight: 400; }
-    
-    .read-more { 
-        color: var(--text-dark); 
-        background: rgba(255, 255, 255, 0.30);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.55);
-        padding: 11px 24px;
-        border-radius: 40px;
-        text-decoration: none; 
-        font-weight: 600; 
-        display: inline-block; 
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        font-size: 14px;
-        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03),
-                    inset 0 1px 1px rgba(255, 255, 255, 0.3);
-    }
-    .read-more:hover { 
-        background: var(--accent-blue);
-        color: #ffffff;
-        border-color: var(--accent-blue);
-        transform: scale(1.04);
-        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
-    }
-    
-    .article-card { padding: 50px; text-align: left; max-width: 800px; margin: 0 auto; }
-    .article-card h1 { font-size: 46px; margin-top: 0; margin-bottom: 25px; letter-spacing: -1.5px; font-weight: 800; }
-    .article-card h2 { font-size: 28px; margin-top: 35px; margin-bottom: 15px; letter-spacing: -0.5px; font-weight: 700; }
-    .article-card p { line-height: 1.7; font-size: 18px; color: #0F172A; margin-bottom: 20px; }
-    .article-card ul { padding-left: 25px; margin-bottom: 25px; }
-    .article-card li { margin-bottom: 10px; line-height: 1.6; font-size: 17px; color: #0F172A; }
-    .article-card a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
-    .article-card a:hover { text-decoration: underline; }
-    
-    .section-title { font-size: 40px; letter-spacing: -1px; margin-bottom: 30px; font-weight: 800; }
-    .item-list { list-style: none; padding: 0; margin: 0; }
-    .list-item-card { padding: 30px; margin-bottom: 20px; text-align: left; }
-    .list-item-card h2 { margin: 0 0 10px 0; font-size: 24px; font-weight: 700; }
-    .list-item-card h2 a { text-decoration: none; color: var(--text-dark); }
-    .list-item-card h2 a:hover { color: var(--accent-blue); }
-    .list-item-card p { margin: 0; color: #334155; font-size: 16px; }
-    
-    footer {
-        padding: 35px 40px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.3);
-        background: rgba(255, 255, 255, 0.08); backdrop-filter: var(--glass-blur); margin-top: auto;
-    }
-    .social-links { margin-bottom: 15px; }
-    .social-links a {
-        margin: 0 15px; text-decoration: none; color: var(--text-dark); font-size: 24px; 
-        transition: color 0.2s ease, transform 0.2s ease; display: inline-block;
-    }
-    .social-links a:hover { color: var(--accent-blue); transform: translateY(-3px); }
-    .copyright { font-size: 14px; color: #475569; font-weight: 500; }
-    """
 }
