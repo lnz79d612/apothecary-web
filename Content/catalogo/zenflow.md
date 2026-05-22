@@ -14,4 +14,4 @@ Il flusso delle tue finanze, semplificato e intelligente.
 
 ***
 
-[Informativa sulla Privacy](/catalogo/privacy-zenflow)
+[📄 Leggi l'Informativa sulla Privacy](/catalogo/privacy-zenflow/)
