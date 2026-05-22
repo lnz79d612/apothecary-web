@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Privacy Policy - ZenFlow | Appthecary</title><meta name="twitter:title" content="Privacy Policy - ZenFlow | Appthecary"/><meta property="og:title" content="Privacy Policy - ZenFlow | Appthecary"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/><style>:root {
+    --bg-main: #E2E8F0;
+    --text-dark: #0F172A;
+    --accent-blue: #2563EB;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.40);
+    --glass-blur: blur(24px);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: -1;
+    mix-blend-mode: multiply;
+}
+.blob-1 { 
+    width: 600px; height: 600px; 
+    background: radial-gradient(circle, rgba(99,102,241,0.6) 0%, rgba(168,85,247,0.4) 50%, rgba(255,255,255,0) 70%); 
+    top: -150px; right: -100px; 
+}
+.blob-2 { 
+    width: 550px; height: 550px; 
+    background: radial-gradient(circle, rgba(236,72,153,0.5) 0%, rgba(244,63,94,0.3) 50%, rgba(255,255,255,0) 70%); 
+    bottom: -50px; left: -150px; 
+}
+.blob-3 { 
+    width: 450px; height: 450px; 
+    background: radial-gradient(circle, rgba(6,182,212,0.4) 0%, rgba(59,130,246,0.2) 60%, rgba(255,255,255,0) 70%); 
+    top: 25%; left: 25%; 
+}
+
+header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.logo { font-weight: 700; font-size: 24px; letter-spacing: -1px; }
+.logo a { text-decoration: none; color: var(--text-dark); }
+nav a {
+    margin-left: 30px; text-decoration: none; color: var(--text-dark); font-weight: 500;
+    transition: color 0.2s ease;
+}
+nav a:hover { color: var(--accent-blue); }
+
+main { 
+    padding: 60px 40px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    flex: 1; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: 28px;
+    box-shadow: 0 12px 40px 0 rgba(15, 23, 42, 0.04), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.4),
+                inset 0 -1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.hero { padding: 60px; text-align: center; }
+.hero h1 { font-size: 60px; margin: 0 0 20px 0; letter-spacing: -2px; font-weight: 800; }
+.hero p { font-size: 20px; color: #334155; margin: 0; font-weight: 500; }
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+.app-card {
+    padding: 40px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.app-card:hover { 
+    transform: translateY(-10px) scale(1.01); 
+    box-shadow: 0 20px 50px 0 rgba(15, 23, 42, 0.10), 
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.app-icon {
+    width: 76px; height: 76px; border-radius: 20px; margin-bottom: 24px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1); border: 1px solid rgba(255, 255, 255, 0.4);
+    object-fit: cover;
+}
+
+.app-card h3 { font-size: 28px; margin-top: 0; margin-bottom: 15px; letter-spacing: -1px; font-weight: 700; }
+.app-card p { font-size: 16px; color: #334155; line-height: 1.6; flex-grow: 1; margin-bottom: 25px; font-weight: 400; }
+
+/* MODIFICA: TASTO CON EFFETTO CRISTALLO SATINATO LIGHT */
+.read-more { 
+    color: var(--text-dark); 
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    padding: 11px 24px;
+    border-radius: 40px;
+    text-decoration: none; 
+    font-weight: 600; 
+    display: inline-block; 
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03),
+                inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+.read-more:hover { 
+    background: var(--accent-blue);
+    color: #ffffff;
+    border-color: var(--accent-blue);
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+.article-card { padding: 50px; text-align: left; max-width: 800px; margin: 0 auto; }
+.article-card h1 { font-size: 46px; margin-top: 0; margin-bottom: 25px; letter-spacing: -1.5px; font-weight: 800; }
+.article-card h2 { font-size: 28px; margin-top: 35px; margin-bottom: 15px; letter-spacing: -0.5px; font-weight: 700; }
+.article-card p { line-height: 1.7; font-size: 18px; color: #0F172A; margin-bottom: 20px; }
+.article-card ul { padding-left: 25px; margin-bottom: 25px; }
+.article-card li { margin-bottom: 10px; line-height: 1.6; font-size: 17px; color: #0F172A; }
+.article-card a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+.article-card a:hover { text-decoration: underline; }
+
+.section-title { font-size: 40px; letter-spacing: -1px; margin-bottom: 30px; font-weight: 800; }
+.item-list { list-style: none; padding: 0; margin: 0; }
+.list-item-card { padding: 30px; margin-bottom: 20px; text-align: left; }
+.list-item-card h2 { margin: 0 0 10px 0; font-size: 24px; font-weight: 700; }
+.list-item-card h2 a { text-decoration: none; color: var(--text-dark); }
+.list-item-card h2 a:hover { color: var(--accent-blue); }
+.list-item-card p { margin: 0; color: #334155; font-size: 16px; }
+
+footer {
+    padding: 35px 40px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08); backdrop-filter: var(--glass-blur); margin-top: auto;
+}
+.social-links { margin-bottom: 15px; }
+.social-links a {
+    margin: 0 15px; text-decoration: none; color: var(--text-dark); font-size: 24px; 
+    transition: color 0.2s ease, transform 0.2s ease; display: inline-block;
+}
+.social-links a:hover { color: var(--accent-blue); transform: translateY(-3px); }
+.copyright { font-size: 14px; color: #475569; font-weight: 500; }</style></head><body><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><header><div class="logo"><a href="/">Appthecary</a></div><nav><a href="/catalogo/">Il Catalogo</a><a href="/meccanica/">Meccanica</a></nav></header><main><article class="glass-card article-card"><h1>Privacy Policy di ZenFlow</h1><p><strong>Ultimo aggiornamento:</strong> 18 Maggio 2026</p><p>La presente Privacy Policy descrive le modalità con cui <strong>Appthecary</strong> ("noi", "nostro" o "ci") raccoglie, utilizza e protegge le informazioni degli utenti ("utente" o "tu") all'interno dell'applicazione mobile ZenFlow (l' "Applicazione").</p><p>Ci impegniamo a garantire la massima trasparenza e la protezione dei tuoi dati personali finanziari e sensibili.</p><h2>1. Tipologia di Dati Raccolti</h2><h3>A. Dati Finanziari Personali</h3><p>L'Applicazione consente di gestire conti, carte di credito, budget e transazioni. * <strong>Archiviazione Locale:</strong> Tutti i dati finanziari inseriti manualmente dall'utente vengono memorizzati esclusivamente sul dispositivo locale tramite la tecnologia proprietaria di Apple (SwiftData/CoreData). Noi non abbiamo accesso, non raccogliamo e non memorizziamo questi dati su server centrali.</p><h3>B. Utilizzo della Fotocamera e Funzione di Scansione AI</h3><p>L'Applicazione include una funzionalità di scansione degli scontrini per l'analisi intelligente delle spese. <em> <strong>Accesso alla Fotocamera:</strong> L'Applicazione richiede il permesso di accedere alla fotocamera esclusivamente per scattare foto dei documenti di spesa. </em> <strong>Elaborazione dei Dati:</strong> L'immagine acquisita viene elaborata localmente tramite framework di riconoscimento testo di Apple (Vision) e il testo estratto viene inviato tramite una connessione sicura HTTPS al nostro endpoint backend (<code>zenflow-backend-vu71.onrender.com</code>) collegato alle API di Google Gemini per la categorizzazione automatica. * <strong>Nessuna Conservazione delle Immagini:</strong> Le immagini e i testi degli scontrini non vengono salvati né conservati sul nostro backend dopo il completamento dell'analisi.</p><h3>C. Annunci Pubblicitari di Terze Parti (Google AdMob)</h3><p>L'Applicazione utilizza il servizio di terze parti Google AdMob per mostrare annunci pubblicitari integrati. Per il funzionamento di AdMob, Google può raccogliere e utilizzare identificatori di tracciamento del dispositivo (come l'IDFA su iOS) e dati di utilizzo per personalizzare degli annunci, nel rispetto delle scelte di consenso dell'utente espresse tramite il modulo di conformità (UMP).</p><h2>2. Base Legale del Trattamento</h2><p>Trattiamo i tuoi dati esclusivamente sulla base del tuo esplicito consenso: <em> Il consenso all'uso della fotocamera e all'invio del testo dello scontrino per l'analisi AI viene richiesto dinamicamente al momento dell'uso. </em> Il consenso alla personalizzazione degli annunci pubblicitari viene richiesto all'avvio dell'applicazione tramite il framework per il consenso della privacy (User Messaging Platform).</p><h2>3. Conservazione e Sicurezza dei Dati</h2><ul><li>I dati locali sono protetti dai sistemi di sicurezza nativi del sistema operativo iOS.</li><li>Le comunicazioni verso il backend per l'analisi intelligente avvengono esclusivamente tramite protocolli crittografati TLS/SSL (HTTPS).</li></ul><h2>4. Condivisione dei Dati con Terze Parti</h2><p>Non vendiamo, scambiamo o trasferiamo a terzi i tuoi dati personali, ad eccezione dei fornitori di servizi essenziali per il funzionamento dell'app descritti di seguito: <em> <strong>Google Mobile Ads (AdMob):</strong> Per l'erogazione di banner pubblicitari. <a href="https://policies.google.com/privacy">Privacy Policy di Google</a> </em> <strong>Google Gemini API (tramite il nostro backend):</strong> Per l'elaborazione del testo degli scontrini finalizzato alla categorizzazione.</p><h2>5. Diritti dell'Utente (Conformità GDPR)</h2><p>Poiché tutti i dati principali dell'applicazione risiedono sul tuo dispositivo, hai il pieno ed esclusivo controllo su di essi. Puoi aggiornare, modificare o eliminare definitivamente tutte le informazioni finanziarie in qualsiasi momento semplicemente cancellando i record all'interno dell'app o disinstallando l'Applicazione stessa dal dispositivo.</p><h2>6. Contatti</h2><p>Per qualsiasi domanda o chiarimento relativo alla presente Privacy Policy, puoi contattarci al seguente indirizzo email: * <strong>Email di supporto:</strong> support@appthecary.app</p></article></main><footer><div class="social-links"><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div><div class="copyright">© 2026 Appthecary. Tutti i diritti riservati.</div></footer></body></html>
