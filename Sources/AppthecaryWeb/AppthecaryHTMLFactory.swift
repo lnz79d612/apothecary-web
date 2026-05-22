@@ -44,12 +44,12 @@ private struct AppthecaryHTMLFactory: HTMLFactory {
                     ),
                     
                     .section(.class("catalog-grid"),
-                        // Scheda ZenFlow
+                        // Scheda ZenFlow (Modificato l'href inserendo index.html esplicito)
                         .div(.class("glass-card app-card"),
                             .img(.src("/images/icon-zenflow.png"), .alt("Icona ZenFlow"), .class("app-icon")),
                             .h3("ZenFlow"),
                             .p("Gestisci il tuo budget personale con serenità e controllo. Un approccio minimalista e pulito alle tue finanze quotidiane."),
-                            .a(.href("/catalogo/zenflow/"), .class("read-more"), .text("Scopri l'App →"))
+                            .a(.href("/catalogo/zenflow/index.html"), .class("read-more"), .text("Scopri l'App →"))
                         ),
                         
                         // Scheda VirtualPassport
@@ -148,7 +148,7 @@ private struct AppthecaryHTMLFactory: HTMLFactory {
                         .class("item-list"),
                         .forEach(section.items) { item in
                             .li(.class("glass-card list-item-card"),
-                                .h2(.a(.href("\(item.path.string)/"), .text(item.title))),
+                                .h2(.a(.href("\(item.path.string)/index.html"), .text(item.title))),
                                 .p(.text(item.description))
                             )
                         }
@@ -326,7 +326,6 @@ private struct AppthecaryHTMLFactory: HTMLFactory {
     .app-card h3 { font-size: 28px; margin-top: 0; margin-bottom: 15px; letter-spacing: -1px; font-weight: 700; }
     .app-card p { font-size: 16px; color: #334155; line-height: 1.6; flex-grow: 1; margin-bottom: 25px; font-weight: 400; }
     
-    /* MODIFICA: TASTO CON EFFETTO CRISTALLO SATINATO LIGHT */
     .read-more { 
         color: var(--text-dark); 
         background: rgba(255, 255, 255, 0.30);
