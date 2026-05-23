@@ -154,6 +154,7 @@ main {
 .article-card li { margin-bottom: 10px; line-height: 1.6; font-size: 17px; color: #0F172A; }
 .article-card a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
 .article-card a:hover { text-decoration: underline; }
+.article-card img { max-width: 100%; height: auto; border-radius: 20px; margin: 20px 0; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1); }
 
 .section-title { font-size: 40px; letter-spacing: -1px; margin-bottom: 30px; font-weight: 800; }
 .item-list { list-style: none; padding: 0; margin: 0; }
@@ -173,4 +174,60 @@ footer {
     transition: color 0.2s ease, transform 0.2s ease; display: inline-block;
 }
 .social-links a:hover { color: var(--accent-blue); transform: translateY(-3px); }
-.copyright { font-size: 14px; color: #475569; font-weight: 500; }</style></head><body><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><header><div class="logo"><a href="/">Appthecary</a></div><nav><a href="/catalogo/">Il Catalogo</a><a href="/meccanica/">Meccanica</a></nav></header><main><article class="glass-card article-card"><img src="/Images/icon-zenflow.png" alt="Icona ZenFlow" style="width: 80px; height: 80px; border-radius: 20px; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1); border: 1px solid rgba(255, 255, 255, 0.4); margin-top: 10px; margin-bottom: 10px; object-fit: cover;" /><h1>ZenFlow</h1><p><strong>Il flusso delle tue finanze, semplificato e intelligente.</strong></p><img src="/Images/zenflow-hero.png" alt="Anteprima dell'app ZenFlow"/><p>ZenFlow non è solo un tracker di spese, è uno strumento pensato per restituirti serenità e controllo sul tuo budget personale. Nata dalla filosofia dell'Artigianato Digitale, unisce un design iper-minimalista alla potenza dell'intelligenza artificiale, eliminando lo stress e la noia dell'inserimento manuale dei dati.</p><h2>Le fondamenta dell'App</h2><p>Abbiamo costruito ZenFlow attorno a tre pilastri fondamentali: <strong>velocità, chiarezza e privacy assoluta</strong>.</p><ul><li><strong>🤖 Scansione Intelligente con AI:</strong> Dimentica la tastiera. Inquadra i tuoi scontrini e le deine ricevute con la fotocamera: grazie all'integrazione di un motore IA avanzato, ZenFlow legge il documento, estrae automaticamente l'importo, la data e categorizza la spesa in una frazione di secondo.</li></ul><img src="/Images/zenflow-scan.png" alt="Scansione degli scontrini con IA"/><ul><li><strong>🔒 Privacy First &amp; Sincronizzazione iCloud:</strong> I tuoi dati finanziari sono estremamente delicati e devono rimanere solo tuoi. ZenFlow non utilizza server di terze parti per archiviare i tuoi movimenti. L'intero database vive localmente sul tuo iPhone e si sincronizza in background in modo crittografato esclusivamente tramite il tuo account Apple iCloud privato.</li><li><strong>⚡️ Prestazioni Native e Widget:</strong> Sviluppata nativamente per iOS, l'app offre un'esperienza fluida e reattiva. Tieni d'occhio i tuoi bilanci mensili e i tuoi flussi di cassa direttamente dalla Home Screen grazie ai widget interattivi.</li><li><strong>🧘‍♂️ Interfaccia Zen:</strong> Un design pulito, moderno e privo di distrazioni. Niente pubblicità, nessun grafico caotico o menu affollato: solo le informazioni essenziali che ti servono per avere il polso della tua situazione economica a colpo d'occhio.</li></ul><h2>Inizia a gestire il tuo flusso</h2><p>Riprendi il controllo delle tue finanze quotidiane con un approccio rigoroso, trasparente e senza sforzo.</p><p><a href="https://apps.apple.com/it/app/zenflow/id672227255">📥 Scarica ZenFlow su App Store</a></p><hr><p><a href="/privacy-zenflow/index.html">📄 Leggi l'Informativa sulla Privacy</a></p></article></main><footer><div class="social-links"><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div><div class="copyright">© 2026 Appthecary. Tutti i diritti riservati.</div></footer></body></html>
+.copyright { font-size: 14px; color: #475569; font-weight: 500; }
+
+/* ========================================= */
+/* REGOLE RESPONSIVE PER DISPOSITIVI MOBILE  */
+/* ========================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    nav a {
+        margin: 0 10px;
+        font-size: 15px;
+    }
+    main {
+        padding: 30px 20px;
+    }
+    .hero {
+        padding: 30px 20px;
+    }
+    .hero h1 {
+        font-size: 38px;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    .hero p {
+        font-size: 18px;
+    }
+    .catalog-grid {
+        gap: 20px;
+    }
+    .app-card {
+        padding: 25px;
+    }
+    .app-card h3 {
+        font-size: 24px;
+    }
+    .article-card {
+        padding: 30px 20px;
+    }
+    .article-card h1 {
+        font-size: 34px;
+    }
+    .article-card h2 {
+        font-size: 24px;
+    }
+    .section-title {
+        font-size: 32px;
+    }
+    .list-item-card {
+        padding: 20px;
+    }
+    footer {
+        padding: 25px 20px;
+    }
+}</style></head><body><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><header><div class="logo"><a href="/">Appthecary</a></div><nav><a href="/catalogo/">Il Catalogo</a><a href="/meccanica/">Meccanica</a></nav></header><main><article class="glass-card article-card"><img src="/Images/icon-zenflow.png" alt="Icona ZenFlow" style="width: 80px; height: 80px; border-radius: 20px; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1); border: 1px solid rgba(255, 255, 255, 0.4); margin-top: 10px; margin-bottom: 10px; object-fit: cover;" /><h1>ZenFlow</h1><p><strong>Il flusso delle tue finanze, semplificato e intelligente.</strong></p><img src="/Images/zenflow-hero.png" alt="Anteprima dell'app ZenFlow"/><p>ZenFlow non è solo un tracker di spese, è uno strumento pensato per restituirti serenità e controllo sul tuo budget personale. Nata dalla filosofia dell'Artigianato Digitale, unisce un design iper-minimalista alla potenza dell'intelligenza artificiale, eliminando lo stress e la noia dell'inserimento manuale dei dati.</p><h2>Le fondamenta dell'App</h2><p>Abbiamo costruito ZenFlow attorno a tre pilastri fondamentali: <strong>velocità, chiarezza e privacy assoluta</strong>.</p><ul><li><strong>🤖 Scansione Intelligente con AI:</strong> Dimentica la tastiera. Inquadra i tuoi scontrini e le deine ricevute con la fotocamera: grazie all'integrazione di un motore IA avanzato, ZenFlow legge il documento, estrae automaticamente l'importo, la data e categorizza la spesa in una frazione di secondo.</li></ul><img src="/Images/zenflow-scan.png" alt="Scansione degli scontrini con IA"/><ul><li><strong>🔒 Privacy First &amp; Sincronizzazione iCloud:</strong> I tuoi dati finanziari sono estremamente delicati e devono rimanere solo tuoi. ZenFlow non utilizza server di terze parti per archiviare i tuoi movimenti. L'intero database vive localmente sul tuo iPhone e si sincronizza in background in modo crittografato esclusivamente tramite il tuo account Apple iCloud privato.</li><li><strong>⚡️ Prestazioni Native e Widget:</strong> Sviluppata nativamente per iOS, l'app offre un'esperienza fluida e reattiva. Tieni d'occhio i tuoi bilanci mensili e i tuoi flussi di cassa direttamente dalla Home Screen grazie ai widget interattivi.</li><li><strong>🧘‍♂️ Interfaccia Zen:</strong> Un design pulito, moderno e privo di distrazioni. Niente pubblicità, nessun grafico caotico o menu affollato: solo le informazioni essenziali che ti servono per avere il polso della tua situazione economica a colpo d'occhio.</li></ul><h2>Inizia a gestire il tuo flusso</h2><p>Riprendi il controllo delle tue finanze quotidiane con un approccio rigoroso, trasparente e senza sforzo.</p><p><a href="https://apps.apple.com/it/app/zenflow/id672227255">📥 Scarica ZenFlow su App Store</a></p><hr><p><a href="/privacy-zenflow/index.html">📄 Leggi l'Informativa sulla Privacy</a></p></article></main><footer><div class="social-links"><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div><div class="copyright">© 2026 Appthecary. Tutti i diritti riservati.</div></footer></body></html>

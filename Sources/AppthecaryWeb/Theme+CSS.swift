@@ -1,11 +1,3 @@
-//
-//  ThemeCSS.swift
-//  AppthecaryWeb
-//
-//  Created by Lorenzo Pacini on 22/05/2026.
-//
-
-
 import Foundation
 
 struct ThemeCSS {
@@ -166,6 +158,7 @@ struct ThemeCSS {
     .article-card li { margin-bottom: 10px; line-height: 1.6; font-size: 17px; color: #0F172A; }
     .article-card a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
     .article-card a:hover { text-decoration: underline; }
+    .article-card img { max-width: 100%; height: auto; border-radius: 20px; margin: 20px 0; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1); }
     
     .section-title { font-size: 40px; letter-spacing: -1px; margin-bottom: 30px; font-weight: 800; }
     .item-list { list-style: none; padding: 0; margin: 0; }
@@ -186,5 +179,61 @@ struct ThemeCSS {
     }
     .social-links a:hover { color: var(--accent-blue); transform: translateY(-3px); }
     .copyright { font-size: 14px; color: #475569; font-weight: 500; }
+
+    /* ========================================= */
+    /* REGOLE RESPONSIVE PER DISPOSITIVI MOBILE  */
+    /* ========================================= */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            padding: 15px 20px;
+            gap: 15px;
+        }
+        nav a {
+            margin: 0 10px;
+            font-size: 15px;
+        }
+        main {
+            padding: 30px 20px;
+        }
+        .hero {
+            padding: 30px 20px;
+        }
+        .hero h1 {
+            font-size: 38px;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+        .hero p {
+            font-size: 18px;
+        }
+        .catalog-grid {
+            gap: 20px;
+        }
+        .app-card {
+            padding: 25px;
+        }
+        .app-card h3 {
+            font-size: 24px;
+        }
+        .article-card {
+            padding: 30px 20px;
+        }
+        .article-card h1 {
+            font-size: 34px;
+        }
+        .article-card h2 {
+            font-size: 24px;
+        }
+        .section-title {
+            font-size: 32px;
+        }
+        .list-item-card {
+            padding: 20px;
+        }
+        footer {
+            padding: 25px 20px;
+        }
+    }
     """
 }
