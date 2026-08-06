@@ -31,6 +31,13 @@ struct AppthecaryHTMLFactory: HTMLFactory {
                             .p("Gestisci il tuo budget personale con serenità e controllo. Un approccio minimalista e pulito alle tue finanze quotidiane."),
                             .a(.href("/catalogo/zenflow/index.html"), .class("read-more"), .text("Scopri l'App →"))
                         ),
+                        // Scheda MyCollection (NUOVA)
+                        .div(.class("glass-card app-card"),
+                            .img(.src("/Images/icon-mycollection.png"), .alt("Icona MyCollection"), .class("app-icon")),
+                            .h3("MyCollection"),
+                            .p("Crea, cataloga e gestisci la tua collezione personale in un'unica app elegante e privata."),
+                            .a(.href("/catalogo/mycollection/index.html"), .class("read-more"), .text("Scopri l'App →"))
+                        ),
                         // Scheda VirtualPassport
                         .div(.class("glass-card app-card"),
                             .div(.class("app-icon-placeholder"), .i(.class("fa-solid fa-file-invoice"))),
