@@ -20,7 +20,4 @@ MyCollection è lo spazio digitale perfetto per collezionare, catalogare e organ
 
 ***
 
-[📄 Leggi l'Informativa sulla Privacy](/privacy-mycollection/index.html)---
-title: ZenFlow - Appthecary
-description: Il flusso delle tue finanze, semplificato e intelligente. Un approccio minimalista e sicuro alla gestione del tuo budget.
----
+[📄 Leggi l'Informativa sulla Privacy](/privacy-mycollection/index.html)
