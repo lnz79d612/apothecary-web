@@ -52,4 +52,3 @@ Essendo tutti i dati delle collezioni archiviati sul tuo account iCloud personal
 Per qualsiasi domanda o chiarimento riguardante questa Informativa sulla Privacy, puoi contattare il supporto:
 * **E-mail:** support@appthecary.app
 * **Sviluppatore:** Appthecary
-
